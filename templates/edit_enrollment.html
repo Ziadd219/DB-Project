@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Enrollment</title>
+</head>
+<body>
+    <h1>Edit Enrollment</h1>
+    <a href="/enrollments">Back to Enrollment List</a>
+    <h3>Student: {{ enrollment[1] }} {{ enrollment[2] }}</h3>
+    <h3>Course: {{ enrollment[3] }}</h3>
+    <form method="POST" action="/update_enrollment/{{ enrollment[0] }}">
+        <label>Status:</label>
+        <select name="status" required>
+            <option value="Active" {% if enrollment[4] == 'Active' %}selected{% endif %}>Active</option>
+            <option value="Completed" {% if enrollment[4] == 'Completed' %}selected{% endif %}>Completed</option>
+            <option value="Dropped" {% if enrollment[4] == 'Dropped' %}selected{% endif %}>Dropped</option>
+        </select><br><br>
+
+        <button type="submit">Save Changes</button>
+    </form>
+</body>

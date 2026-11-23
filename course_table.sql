@@ -1,0 +1,7 @@
+CREATE TABLE courses (
+	course_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	course_code VARCHAR(20) NOT NULL UNIQUE,
+	course_name VARCHAR(50) NOT NULL,
+	credits INTEGER NOT NULL CHECK (credits > 0),
+	department VARCHAR(50) NOT NULL
+);
